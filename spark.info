@@ -1,0 +1,5 @@
+# Spark spec
+name: ideal-form
+version: 0.1
+compatibility: 2.0.0
+tags: ["online payment", "bank transfer"]
