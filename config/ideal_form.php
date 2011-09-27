@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Config for the iDeal form library
- * @see ../libraries/iDeal form.php
+ * @see ../libraries/Ideal_form.php
  */
 $config['ideal_form_endpoint'] = '';						// Endpoint for your bank
 $config['ideal_form_merchant_id'] = '';						// Merchant id, provided by your bank

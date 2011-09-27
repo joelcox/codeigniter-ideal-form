@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter iDeal form
  *
@@ -92,7 +92,7 @@ class Ideal_form {
 	 * Add a new product
 	 * @param 	int		item identifier
 	 * @param	string	description of the product
-	 * @param	float	price of the item
+	 * @param	double	price of the item
 	 * @param	int		amount ordered
 	 * @return 	bool
 	 */
@@ -115,8 +115,9 @@ class Ideal_form {
 	
 	/**
 	 * Renders the form
+	 * @return 	string
 	 */ 
-	public function display_form()
+	public function render_form()
 	{
 	
 		$this->_ci->load->helper('form');
@@ -146,6 +147,7 @@ class Ideal_form {
 		$html .= $this->_process_products();
 		
 		$html .= form_submit('ideal', 'Start iDeal betaling');
+		$html .= form_close();
 		
 		return $html;
 	

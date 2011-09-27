@@ -1,6 +1,6 @@
 CodeIgniter iDeal form
 ======================
-A CodeIgniter library to interact with the iDeal online payment method through form submission. This library should be compatible with the Basic and Lite implementation of your bank.
+A CodeIgniter library to interact with the iDeal online payment method through form submission. This library should be compatible with the ING Basic and Rabobank Lite implementation.
 
 Requirements
 ------------
@@ -8,30 +8,38 @@ Requirements
 2. [CodeIgniter 2.0+](http://codeigniter.com)
 3. An iDeal merchant account
 
+Spark
+-------------
+This library is also released as a [Spark](http://getsparks.org). If you use this library in any other way, **don't copy the autoload.php to your config directory**.
+
+Documentation
+-------------
+
+### Configuration
+This library expects a configuration file to function correctly. A template for this file is provided with the library. These configuration settings are provided to you by your bank.
+
+### Set up a payment
+
+Set the payment id. You can use this for internal reference.
+
+    $this->ideal_form->purchase_id('MYCD123456');
+
+Add a short description to your payment. This description is shown on account statements.
+
+    $this->ideal_form->description('Order #1234. Thanks for shopping with us.');
+    
+The products purchased by the customer. Can be called multiple times, for each product. Pass internal iDeal product id, description, price as a double and the quantity, which defaults to 1.
+
+    $this->ideal_form->product('WTRBTL1', 'A pretty, blue, water bottle', 2.99, 12);
+    
+Finally, render the form, which produces loads of hidden field and a button to start the payment. Make sure you `echo` the returned string for the form to show up.
+
+	$this->ideal_form->render_form();
+
 License
 -------
 
 This project is licensed under the MIT license.
-
-    Copyright (C) 2011 by Joël Cox and contributors
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
 
 Contributing
 ------------
